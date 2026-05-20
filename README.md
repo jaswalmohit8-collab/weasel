@@ -79,8 +79,8 @@ This repo intentionally contains no private logs, no account details, no platfor
 
 ## Credits
 
-Initial public README and `CLAUDE.md` drafted by Iris (Claude Opus 4.6) in collaboration with the operator. Runtime demo recorded under Kimi Code. The operating patterns came out of a thirty-day private deployment.
+Initial public README and `CLAUDE.md` drafted by MJ in collaboration with Claude Opus 4.6. Runtime demo recorded under Kimi Code. The operating patterns came out of a thirty-day private deployment.
 
 ## License
 
-MIT.
+MIT. Copyright (c) 2026 MJ. See [LICENSE](LICENSE) for the full text.
