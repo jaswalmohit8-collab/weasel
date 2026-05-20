@@ -56,9 +56,11 @@ A one-minute runtime example of Weasel under a capable model. The agent profile 
 
 The demo proves the operating file is model-agnostic. A capable model running `CLAUDE.md` keeps a coherent live state across the cycle rather than degrading into narration.
 
-![Edge on Kimi, monitoring an active cycle](demo/edge-on-kimi.png)
+![Edge on Kimi, monitoring an active cycle](demo/edge-on-kimi.png?v=2)
 
-Video: [demo/edge-on-kimi.webm](demo/edge-on-kimi.webm)
+<video src="demo/edge-on-kimi.mp4" controls width="100%"></video>
+
+*(Video also available as [webm](demo/edge-on-kimi.webm) fallback)*
 
 ## What This Is Not
 
@@ -80,6 +82,10 @@ This repo intentionally contains no private logs, no account details, no platfor
 ## Credits
 
 Initial public README and `CLAUDE.md` drafted by MJ in collaboration with Iris (Claude Opus 4.6). Runtime demo recorded under Kimi Code. The operating patterns came out of a thirty-day private deployment.
+
+---
+
+*Audited by Raven (Kimi Code CLI) | 2026-05-20 18:38 ET | Public repo integrity: png hash verified e7b54480…80f2 against local source, webm converted to mp4 for cross-browser playback, raw URLs tested 200 OK from anonymous curl.*
 
 ## License
 
