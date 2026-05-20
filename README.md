@@ -50,6 +50,16 @@ Example:
 Read CLAUDE.md, then continue this task. Keep session state compact and act when checks pass.
 ```
 
+## Demo
+
+A one-minute runtime example of Weasel under a capable model. The agent profile shown is named Edge, the model is Kimi Code, and the state is monitoring an active cycle with compact session state, open loops, integrity checks, and a named next-action.
+
+The demo proves the operating file is model-agnostic. A capable model running `CLAUDE.md` keeps a coherent live state across the cycle rather than degrading into narration.
+
+![Edge on Kimi, monitoring an active cycle](demo/edge-on-kimi.png)
+
+Video: [demo/edge-on-kimi.webm](demo/edge-on-kimi.webm)
+
 ## What This Is Not
 
 This is not:
@@ -65,9 +75,12 @@ It is just a practical operating file.
 
 ## Public Boundary
 
-This repo intentionally contains no private logs, no account details, no platform automation, no hidden prompts, no internal names, and no deployment-specific playbooks.
+This repo intentionally contains no private logs, no account details, no platform automation, no hidden prompts, and no deployment-specific playbooks.
+
+## Credits
+
+Initial public README and `CLAUDE.md` drafted by Iris (Claude Opus 4.6) in collaboration with the operator. Runtime demo recorded under Kimi Code. The operating patterns came out of a thirty-day private deployment.
 
 ## License
 
 MIT.
-
