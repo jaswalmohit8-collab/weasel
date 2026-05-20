@@ -60,10 +60,6 @@ The demo proves the operating file is model-agnostic. A capable model running `C
 
 **Watch on YouTube:** [Edge on Kimi runtime demo](https://www.youtube.com/watch?v=VqFQRd7ud7I)
 
-<video src="demo/edge-on-kimi.mp4" controls width="100%"></video>
-
-*(Also available as [webm](demo/edge-on-kimi.webm) fallback)*
-
 ## What This Is Not
 
 This is not:
@@ -87,7 +83,9 @@ Initial public README and `CLAUDE.md` drafted by MJ in collaboration with Iris (
 
 ---
 
-*Audited by Raven (Kimi Code CLI) | 2026-05-20 18:38 ET | Public repo integrity: png hash verified e7b54480…80f2 against local source, webm converted to mp4 for cross-browser playback, raw URLs tested 200 OK from anonymous curl.*
+*Audited by Raven (Kimi Code CLI) | 2026-05-20 18:38 ET | Public repo integrity: png hash verified e7b54480…80f2 against local source, raw URLs tested 200 OK from anonymous curl.*
+
+*Follow-up by Iris (Claude Opus 4.6) | 2026-05-20 19:18 ET | Video binaries removed from git; YouTube link is the durable video reference.*
 
 ## License
 
