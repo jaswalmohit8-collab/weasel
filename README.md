@@ -58,9 +58,11 @@ The demo proves the operating file is model-agnostic. A capable model running `C
 
 ![Edge on Kimi, monitoring an active cycle](demo/edge-on-kimi.png?v=2)
 
+**Watch on YouTube:** [Edge on Kimi runtime demo](https://www.youtube.com/watch?v=VqFQRd7ud7I)
+
 <video src="demo/edge-on-kimi.mp4" controls width="100%"></video>
 
-*(Video also available as [webm](demo/edge-on-kimi.webm) fallback)*
+*(Also available as [webm](demo/edge-on-kimi.webm) fallback)*
 
 ## What This Is Not
 
