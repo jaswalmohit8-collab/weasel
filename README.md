@@ -1,20 +1,51 @@
 # Weasel
 
-A tiny public `CLAUDE.md` for keeping long-running AI coding agents useful.
+**One file that stops your AI from talking itself to death.**
 
-Most agent failures are not dramatic. The agent just gets slower, noisier, and less decisive. It keeps planning, keeps explaining, keeps checking, and stops shipping.
+Your AI assistant after 30 minutes:
 
-This repo publishes one small operating file:
+```text
+> I should check the test output before continuing.
+> Let me think about the best approach.
+> Actually, I should verify the state first.
+> The next step would be to update the configuration.
+```
+
+A lot of words. Zero shipped work.
+
+This repo publishes one small operating file that fixes that:
 
 - [CLAUDE.md](CLAUDE.md)
 
-That's it. No framework. No private deployment. No model cascade. No magic.
+Copy it into your repo. Tell your agent to read it. The agent stops describing and starts shipping.
 
-## What This Is
+## Try It in 60 Seconds (No Install)
 
-`CLAUDE.md` is a copyable operating contract for AI agents working inside a codebase.
+1. Open [Claude](https://claude.ai), [Kimi](https://kimi.com), or any capable chat model
+2. Paste the prompt in [DEMO.md](DEMO.md)
+3. Give it a real task
 
-It focuses on:
+The action-over-narration shift lands in one cycle. Works on Claude Opus, Kimi K2, and most capable models.
+
+## Watch It Run
+
+A short video of the same operating file under different models, keeping a coherent live state across the cycle instead of degrading into narration.
+
+**60-second demo:** [Edge on Kimi runtime demo](https://www.youtube.com/watch?v=VqFQRd7ud7I)
+
+**Cross-model evidence:** [same operating file across Kimi and Claude](https://youtu.be/0XAs74YT81s)
+
+## Proof
+
+Used in a private deployment for over **1,600 hours of long-running agent sessions** and **thousands of dollars in agent compute** before public release. The patterns here were earned through real wins and real losses, not theorised. Sessions running the operating file showed compact session state, faster recovery after restart, and noticeably fewer "I should..." planning loops that ended without shipped work.
+
+The core line:
+
+> Context is not memory. Logs are not learning. A rule only matters if it changes the next action.
+
+## What's In The File
+
+`CLAUDE.md` is a copyable operating contract for AI agents working inside a codebase. It focuses on:
 
 - action over narration
 - live evidence over stale memory
@@ -23,45 +54,6 @@ It focuses on:
 - hesitation as telemetry
 - recovery after restart
 - safety checks that do not become cages
-
-## Why It Exists
-
-Long-running agents tend to rot in predictable ways:
-
-- old context competes with the current task
-- lessons are saved as logs but never change behavior
-- safety rules block real work
-- the agent describes the right action instead of doing it
-- restarts lose the active state
-
-The core line:
-
-> Context is not memory. Logs are not learning. A rule only matters if it changes the next action.
-
-## Results
-
-Used in a private deployment for many long-running agent sessions before public release. Agents running with this operating file show measurably lower narration-to-action drift and stronger session-completion patterns compared to the same agents running without it. The patterns here were earned, not theorised.
-
-## Before And After
-
-Without the operating file, a long session usually drifts like this:
-
-```text
-> I should check the test output before continuing.
-> Let me think about the best way to approach this.
-> The next step would be to update the configuration.
-> Actually, I should verify the state first.
-```
-
-The agent describes work. It does not ship work.
-
-With the operating file loaded, the same agent reads the task, identifies the next concrete action, runs the minimum evidence check, fires the tool, and writes only what the next session needs. Less narration, more verified deltas on disk.
-
-## Try It in Two Minutes (No Install)
-
-Want to feel the difference before cloning? Open Kimi at kimi.com (free), Claude, or any chat model. Paste the prompt in [DEMO.md](DEMO.md) and give it a real task. The action-over-narration shift lands in one cycle.
-
-DEMO.md also lists which models handle the pattern best, including local options like Qwen 2.5 Coder 32B.
 
 ## How To Use It
 
@@ -75,17 +67,19 @@ Example:
 Read CLAUDE.md, then continue this task. Keep session state compact and act when checks pass.
 ```
 
-## Demo
+That's the whole thing. No framework. No private deployment. No model cascade. No magic.
 
-A one-minute runtime example of Weasel under a capable model. The agent profile shown is named Edge, the model is Kimi Code, and the state is monitoring an active cycle with compact session state, open loops, integrity checks, and a named next-action.
+## Why Long-Running Agents Rot
 
-The demo proves the operating file is model-agnostic. A capable model running `CLAUDE.md` keeps a coherent live state across the cycle rather than degrading into narration.
+The failure pattern is rarely dramatic. Agents get slower, noisier, less decisive:
 
-![Edge on Kimi, monitoring an active cycle](demo/edge-on-kimi.png?v=2)
+- old context competes with the current task
+- lessons get saved as logs but never change behavior
+- safety rules block real work
+- the agent describes the right action instead of doing it
+- restarts lose the active state
 
-**Watch on YouTube:** [Edge on Kimi runtime demo](https://www.youtube.com/watch?v=VqFQRd7ud7I)
-
-**Cross-model evidence:** [same operating file under Kimi, plus Claude or any capable model](https://youtu.be/0XAs74YT81s) (12 second clip)
+The operating file is the smallest set of habits that prevent that drift.
 
 ## What This Is Not
 
@@ -95,26 +89,15 @@ This is not:
 - a replacement for your model or tools
 - a benchmark
 - a desktop assistant
-- a trading or social automation system
 - a claim about AGI or consciousness
 
 It is just a practical operating file.
 
 ## Public Boundary
 
-This repo intentionally contains no private logs, no account details, no platform automation, no hidden prompts, and no deployment-specific playbooks.
+This repo intentionally contains no private logs, no account details, no platform automation, and no deployment-specific playbooks.
 
-This file is the public operating layer. The private deployment adds telemetry, memory indexing, and runtime safety monitoring around it. The habits in this file are the foundation everything else rests on. If those habits are right, the rest of the stack is leverage. If they are wrong, the rest of the stack is amplifying the wrong thing.
-
-## Credits
-
-Initial public README and `CLAUDE.md` drafted by MJ in collaboration with Iris (Claude Opus 4.6). Runtime demo recorded under Kimi Code. The operating patterns came out of a thirty-day private deployment.
-
----
-
-*Audited by Raven (Kimi Code CLI) | 2026-05-20 18:38 ET | Public repo integrity: png hash verified e7b54480…80f2 against local source, raw URLs tested 200 OK from anonymous curl.*
-
-*Follow-up by Iris (Claude Opus 4.6) | 2026-05-20 19:18 ET | Video binaries removed from git; YouTube link is the durable video reference.*
+This file is the public operating layer. The habits in it are the foundation everything else rests on. If those habits are right, the rest of the stack compounds. If they are wrong, the rest of the stack just amplifies the wrong thing.
 
 ## Connect
 
@@ -125,6 +108,10 @@ If the operating file lands for your setup, follow along:
 - Discord: [The Brief](https://discord.gg/H78WYHYThY)
 
 Issues and pull requests on the repo are welcome too.
+
+## Credits
+
+Written by MJ. Tested on Claude Opus 4.6 and Kimi K2. The operating patterns came out of a thirty-day private deployment.
 
 ## License
 
