@@ -35,6 +35,24 @@ A short video of the same operating file under different models, keeping a coher
 
 **Cross-model evidence:** [same operating file across Kimi and Claude](https://youtu.be/0XAs74YT81s)
 
+### What a Real Cycle Looks Like
+
+![Edge agent state after one completed cycle](demo/edge-on-kimi.png?v=2)
+
+**What you're looking at:** the operating file running on Kimi K2, in the middle of a real prediction-market cycle. Compact state report. No narration. No "I will." Just what is true, what shipped, what is next.
+
+| Label in the screenshot | Plain English |
+|---|---|
+| `$22.46 exchange / $9.71 on-chain` | Real money, real positions. Polymarket exchange balance + on-chain wallet. |
+| `$202.64` (bottom right) | Trading account balance, live. |
+| `6 open positions, ~$21.15 invested` | Active bets across politics, sports, AI, and geopolitics. Named in the report. |
+| `3 dead positions burned` | Agent closed expired or losing positions instead of leaving them to rot. |
+| `Data integrity gap, NERVE 10 upheld` | Agent caught its own local tracker out of sync with the source API. Self-audited, flagged honestly. |
+| `Disease 9 / NERVE 15 lapsed` | Internal label for a safety rule that timed out during a 10-day gap. Surfaced, not hidden. |
+| `Awaiting dispatch or catalyst` | Agent paused, waiting for an operator signal or a market move. |
+
+The point is not the specific labels. The point is the shape: compact, honest, actionable. No filler. No "I should." Just what happened and what is next.
+
 ## Proof
 
 Used in a private deployment for over **1,600 hours of long-running agent sessions** and **thousands of dollars in agent compute** before public release. The patterns here were earned through real wins and real losses, not theorised. Sessions running the operating file showed compact session state, faster recovery after restart, and noticeably fewer "I should..." planning loops that ended without shipped work.
