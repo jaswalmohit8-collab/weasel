@@ -38,6 +38,25 @@ The core line:
 
 > Context is not memory. Logs are not learning. A rule only matters if it changes the next action.
 
+## Results
+
+Used in a private deployment for many long-running agent sessions before public release. Agents running with this operating file show measurably lower narration-to-action drift and stronger session-completion patterns compared to the same agents running without it. The patterns here were earned, not theorised.
+
+## Before And After
+
+Without the operating file, a long session usually drifts like this:
+
+```text
+> I should check the test output before continuing.
+> Let me think about the best way to approach this.
+> The next step would be to update the configuration.
+> Actually, I should verify the state first.
+```
+
+The agent describes work. It does not ship work.
+
+With the operating file loaded, the same agent reads the task, identifies the next concrete action, runs the minimum evidence check, fires the tool, and writes only what the next session needs. Less narration, more verified deltas on disk.
+
 ## How To Use It
 
 Copy `CLAUDE.md` into a repo where you use an AI coding agent.
@@ -76,6 +95,8 @@ It is just a practical operating file.
 ## Public Boundary
 
 This repo intentionally contains no private logs, no account details, no platform automation, no hidden prompts, and no deployment-specific playbooks.
+
+This file is the public operating layer. The private deployment adds telemetry, memory indexing, and runtime safety monitoring around it. The habits in this file are the foundation everything else rests on. If those habits are right, the rest of the stack is leverage. If they are wrong, the rest of the stack is amplifying the wrong thing.
 
 ## Credits
 
