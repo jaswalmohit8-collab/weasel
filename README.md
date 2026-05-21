@@ -57,6 +57,12 @@ The agent describes work. It does not ship work.
 
 With the operating file loaded, the same agent reads the task, identifies the next concrete action, runs the minimum evidence check, fires the tool, and writes only what the next session needs. Less narration, more verified deltas on disk.
 
+## Try It in Two Minutes (No Install)
+
+Want to feel the difference before cloning? Open Kimi at kimi.com (free), Claude, or any chat model. Paste the prompt in [DEMO.md](DEMO.md) and give it a real task. The action-over-narration shift lands in one cycle.
+
+DEMO.md also lists which models handle the pattern best, including local options like Qwen 2.5 Coder 32B.
+
 ## How To Use It
 
 Copy `CLAUDE.md` into a repo where you use an AI coding agent.
