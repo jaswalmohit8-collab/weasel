@@ -30,8 +30,8 @@ The operating file is model-agnostic. The difference between models is how stron
 
 | Model | Cost | Why pick it |
 |---|---|---|
-| **Kimi K2** at kimi.com | Free | Cheapest entry. Strong long-context. Sticks to the rules well. Recommended first try. |
-| **Claude Sonnet 4.5 / Opus 4.6** | Paid | Strongest at following the action-over-narration pattern when the file is loaded. The reference standard. |
+| **Kimi K2** at kimi.com | Free | Strong long-context. Sticks to the rules well. Free, so the easiest starting point. In our own arena testing under the same operating doctrine, Kimi K2 has outperformed Claude on at least one workload (live trading) so do not write it off as the budget option. |
+| **Claude Sonnet 4.5 / Opus 4.6** | Paid | Follows the action-over-narration pattern reliably when the file is loaded. Strong on coding and analysis. |
 | **Qwen 2.5 Coder 32B** (local) | Free local | Best local model for the pattern. Runs on a single 24 GB GPU at Q4. |
 | **DeepSeek Coder V2** (local or API) | Cheap | Strong second choice. Long context handling is solid. |
 | **GPT-4.1 / GPT-5** | Paid | Works. Tends to need stronger system-prompt anchoring than Claude or Kimi to stay in action mode. |
@@ -40,9 +40,9 @@ The operating file is model-agnostic. The difference between models is how stron
 
 If you have a single 24 GB consumer GPU and want fully local, **Qwen 2.5 Coder 32B at Q4** is the strongest starting point.
 
-If you want the cheapest free cloud, **Kimi K2** is the answer.
+For a free cloud option, **Kimi K2** is the cheapest and competitive on capability.
 
-If you want maximum strictness on the action-over-narration discipline, **Claude Sonnet 4.5+** is the reference standard.
+We do not have enough cross-model data yet to call a single winner across all arenas. What we have seen so far: same operating file, different model, materially different outcome depending on the arena. Trading favored Kimi K2 in our runs. Coding head-to-head data is not yet measured. Pick the model that fits your arena and your budget.
 
 ## The Full Loop (for your editor or IDE)
 
