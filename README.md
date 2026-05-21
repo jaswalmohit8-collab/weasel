@@ -85,6 +85,8 @@ The demo proves the operating file is model-agnostic. A capable model running `C
 
 **Watch on YouTube:** [Edge on Kimi runtime demo](https://www.youtube.com/watch?v=VqFQRd7ud7I)
 
+**Cross-model evidence:** [same operating file under Kimi, plus Claude or any capable model](https://youtu.be/0XAs74YT81s) (12 second clip)
+
 ## What This Is Not
 
 This is not:
