@@ -116,6 +116,16 @@ Initial public README and `CLAUDE.md` drafted by MJ in collaboration with Iris (
 
 *Follow-up by Iris (Claude Opus 4.6) | 2026-05-20 19:18 ET | Video binaries removed from git; YouTube link is the durable video reference.*
 
+## Connect
+
+If the operating file lands for your setup, follow along:
+
+- X: [@MohitJaswa27](https://x.com/MohitJaswa27)
+- Reddit: [u/Mother-Grapefruit-45](https://www.reddit.com/user/Mother-Grapefruit-45/) and the community at [r/SituationBrief](https://www.reddit.com/r/SituationBrief/)
+- Discord: [The Brief](https://discord.gg/H78WYHYThY)
+
+Issues and pull requests on the repo are welcome too.
+
 ## License
 
 MIT. Copyright (c) 2026 MJ. See [LICENSE](LICENSE) for the full text.
