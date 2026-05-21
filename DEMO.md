@@ -30,8 +30,8 @@ The operating file is model-agnostic. The difference between models is how stron
 
 | Model | Cost | Why pick it |
 |---|---|---|
-| **Kimi K2** at kimi.com | Free | Strong long-context. Sticks to the rules well. Free, so the easiest starting point. In our own arena testing under the same operating doctrine, Kimi K2 has outperformed Claude on at least one workload (live trading) so do not write it off as the budget option. |
-| **Claude Sonnet 4.5 / Opus 4.6** | Paid | Follows the action-over-narration pattern reliably when the file is loaded. Strong on coding and analysis. |
+| **Kimi K2** at kimi.com | Free | Sticks to the rules well. Free, so the easiest starting point. In our own arena testing under the same operating doctrine, Kimi K2 has outperformed Claude on at least one workload (live trading). |
+| **Claude Sonnet 4.5 / Opus 4.6** | Paid | Follows the action-over-narration pattern reliably when the file is loaded. |
 | **Qwen 2.5 Coder 32B** (local) | Free local | Best local model for the pattern. Runs on a single 24 GB GPU at Q4. |
 | **DeepSeek Coder V2** (local or API) | Cheap | Strong second choice. Long context handling is solid. |
 | **GPT-4.1 / GPT-5** | Paid | Works. Tends to need stronger system-prompt anchoring than Claude or Kimi to stay in action mode. |
@@ -42,7 +42,7 @@ If you have a single 24 GB consumer GPU and want fully local, **Qwen 2.5 Coder 3
 
 For a free cloud option, **Kimi K2** is the cheapest and competitive on capability.
 
-We do not have enough cross-model data yet to call a single winner across all arenas. What we have seen so far: same operating file, different model, materially different outcome depending on the arena. Trading favored Kimi K2 in our runs. Coding head-to-head data is not yet measured. Pick the model that fits your arena and your budget.
+We do not have enough cross-model data to rank these models against each other. The one cross-model arena we have measured under the same operating doctrine is live trading, where Kimi K2 outperformed Claude. Every other comparison in the table above is a general impression, not a tested result. Pick the model that fits your budget and your workload, then measure.
 
 ## The Full Loop (for your editor or IDE)
 
