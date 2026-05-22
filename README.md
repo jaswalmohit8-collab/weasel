@@ -1,8 +1,19 @@
 # Weasel
 
-**One file that stops your AI from talking itself to death.**
+**A small operating file for keeping long-running AI agent sessions from degrading.**
 
-Your coding agent after a long context window:
+Capable models can do useful long work. The problem is not usually raw intelligence. The problem is operational drift:
+
+- the context window gets treated like durable memory
+- old notes get mistaken for current evidence
+- the agent rewrites plans instead of acting
+- loops form quietly
+- safety checks become cages
+- restarts lose the actual next action
+
+Weasel is a small public `CLAUDE.md` pattern for that problem. It gives an agent a simple contract: act when checks pass, verify the result, keep state compact, and make degradation visible before it compounds.
+
+This is what the failure often looks like after a long context window:
 
 ```text
 > I should check the test output before continuing.
@@ -13,7 +24,7 @@ Your coding agent after a long context window:
 
 A lot of words. Zero shipped work.
 
-Weasel is a small public `CLAUDE.md` pattern for long-running AI coding agents. Copy it into a repo, tell the agent to read it, and the session has a simple contract: act when checks pass, verify the result, and keep enough state for the next run.
+The goal is not to make agents look alive. The goal is to solve a boring problem: keep useful agent work grounded in state, evidence, checkpoints, and measurable action.
 
 - [CLAUDE.md](CLAUDE.md) - the copyable operating contract
 - [AGENTS.md](AGENTS.md) - compatibility shim for agents that look for `AGENTS.md`
@@ -55,7 +66,7 @@ The point is not the labels in one screenshot. The point is the operating shape:
 
 ## Why This Exists
 
-Long-running agent sessions tend to fail in the same ways:
+Long-running agent sessions tend to fail in repeatable ways:
 
 - context gets heavy and the agent stops seeing the current task clearly
 - old notes get treated as live evidence
@@ -67,6 +78,8 @@ Long-running agent sessions tend to fail in the same ways:
 The core rule:
 
 > The context window is working memory, not durable memory. Logs are not learning. A rule only matters if it changes the next action.
+
+Weasel is built around that constraint. It does not try to replace the model. It gives the model a smaller surface to stay honest against.
 
 ## What It Does
 
