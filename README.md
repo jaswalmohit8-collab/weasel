@@ -16,6 +16,7 @@ A lot of words. Zero shipped work.
 Weasel is a small public `CLAUDE.md` pattern for long-running AI coding agents. Copy it into a repo, tell the agent to read it, and the session has a simple contract: act when checks pass, verify the result, and keep enough state for the next run.
 
 - [CLAUDE.md](CLAUDE.md) - the copyable operating contract
+- [AGENTS.md](AGENTS.md) - compatibility shim for agents that look for `AGENTS.md`
 - [DEMO.md](DEMO.md) - a two-minute test prompt
 - [demo](demo/) - runtime screenshots
 
@@ -69,15 +70,16 @@ The core rule:
 
 ## What It Does
 
-`CLAUDE.md` gives an agent a compact operating loop:
+`CLAUDE.md` gives an agent six compact rules:
 
-1. identify the next concrete action
-2. gather the minimum current evidence
-3. act through the available tool
-4. verify the result
-5. save only the state needed to continue
+1. act after checks
+2. live evidence first
+3. keep state compact
+4. break loops early
+5. learn only what changes behavior
+6. keep safety rails useful
 
-It also includes small rules for session state, useful memory events, hesitation telemetry, restart recovery, bounded sessions, and safety checks that do not turn into deadlocks.
+The `AGENTS.md` file is only a shim. The canonical rules stay in `CLAUDE.md` so the repo remains simple.
 
 ## How To Use It
 
