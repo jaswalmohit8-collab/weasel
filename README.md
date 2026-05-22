@@ -2,7 +2,7 @@
 
 **One file that stops your AI from talking itself to death.**
 
-Your AI assistant after 30 minutes:
+Your coding agent after a long context window:
 
 ```text
 > I should check the test output before continuing.
@@ -13,124 +13,126 @@ Your AI assistant after 30 minutes:
 
 A lot of words. Zero shipped work.
 
-This repo publishes one small operating file that fixes that:
+Weasel is a small public `CLAUDE.md` pattern for long-running AI coding agents. Copy it into a repo, tell the agent to read it, and the session has a simple contract: act when checks pass, verify the result, and keep enough state for the next run.
 
-- [CLAUDE.md](CLAUDE.md)
+- [CLAUDE.md](CLAUDE.md) - the copyable operating contract
+- [DEMO.md](DEMO.md) - a two-minute test prompt
+- [demo](demo/) - runtime screenshots
 
-Copy it into your repo. Tell your agent to read it. The agent stops describing and starts shipping.
+No framework. No server. No hidden system. Just one file you can put in a repo and ask a capable coding agent to follow.
 
-## Try It in 60 Seconds (No Install)
+## Try It in 60 Seconds
 
-1. Open [Claude](https://claude.ai), [Kimi](https://kimi.com), or any capable chat model
-2. Paste the prompt in [DEMO.md](DEMO.md)
-3. Give it a real task
+1. Open Claude, Kimi, ChatGPT, or another capable coding model.
+2. Paste the quick-test prompt from [DEMO.md](DEMO.md).
+3. Give it a real task.
 
-The action-over-narration shift lands in one cycle. Works on Claude Opus, Kimi K2, and most capable models.
+The shift should show up immediately: fewer status paragraphs, more direct action, clearer blockers.
 
 ## Watch It Run
 
-A short video of the same operating file under different models, keeping a coherent live state across the cycle instead of degrading into narration.
+These demos show the same operating pattern under different capable models.
 
-**60-second demo:** [Edge on Kimi runtime demo](https://www.youtube.com/watch?v=VqFQRd7ud7I)
-
-**Cross-model evidence:** [same operating file across Kimi and Claude](https://youtu.be/0XAs74YT81s)
+- **60-second demo:** [Edge on Kimi runtime demo](https://www.youtube.com/watch?v=VqFQRd7ud7I)
+- **Cross-model demo:** [same operating file across Kimi and Claude](https://youtu.be/0XAs74YT81s)
 
 ### What a Real Cycle Looks Like
 
 ![Edge agent state after one completed cycle](demo/edge-on-kimi.png?v=2)
 
-**What you're looking at:** the operating file running on Kimi K2, in the middle of a real prediction-market cycle. Compact state report. No narration. No "I will." Just what is true, what shipped, what is next.
+The screenshot is not the product. The useful shape is the state packet:
 
-| Label in the screenshot | Plain English |
+| What appears in the cycle | Why it matters |
 |---|---|
-| `$22.46 exchange / $9.71 on-chain` | Real money, real positions. Polymarket exchange balance + on-chain wallet. |
-| `$202.64` (bottom right) | Trading account balance, live. |
-| `6 open positions, ~$21.15 invested` | Active bets across politics, sports, AI, and geopolitics. Named in the report. |
-| `3 dead positions burned` | Agent closed expired or losing positions instead of leaving them to rot. |
-| `Data integrity gap, NERVE 10 upheld` | Agent caught its own local tracker out of sync with the source API. Self-audited, flagged honestly. |
-| `Disease 9 / NERVE 15 lapsed` | Internal label for a safety rule that timed out during a 10-day gap. Surfaced, not hidden. |
-| `Awaiting dispatch or catalyst` | Agent paused, waiting for an operator signal or a market move. |
+| Compact balance/state lines | The agent reports live state instead of narrating intent. |
+| Open positions/tasks listed clearly | The next action is grounded in current work, not vague context. |
+| Integrity gap called out | The agent names uncertainty instead of hiding it. |
+| Rule lapse surfaced | The agent reports process drift before it compounds. |
+| Named next condition | The loop pauses only with a reason and a next trigger. |
 
-The point is not the specific labels. The point is the shape: compact, honest, actionable. No filler. No "I should." Just what happened and what is next.
+The point is not the labels in one screenshot. The point is the operating shape: compact, honest, actionable. No filler. No "I should." Just what is true, what happened, and what is next.
 
-## Proof
+## Why This Exists
 
-Used in a private deployment for over **1,600 hours of long-running agent sessions** and **thousands of dollars in agent compute** before public release. The patterns here were earned through real wins and real losses, not theorised. Sessions running the operating file showed compact session state, faster recovery after restart, and noticeably fewer "I should..." planning loops that ended without shipped work.
+Long-running agent sessions tend to fail in the same ways:
 
-The core line:
+- context gets heavy and the agent stops seeing the current task clearly
+- old notes get treated as live evidence
+- plans keep getting rewritten instead of executed
+- safety checks become cages instead of useful guardrails
+- restarts lose the next action
+- "I would do X" replaces doing X
+
+The core rule:
 
 > Context is not memory. Logs are not learning. A rule only matters if it changes the next action.
 
-## What's In The File
+## What It Does
 
-`CLAUDE.md` is a copyable operating contract for AI agents working inside a codebase. It focuses on:
+`CLAUDE.md` gives an agent a compact operating loop:
 
-- action over narration
-- live evidence over stale memory
-- compact session state
-- useful memory events
-- hesitation as telemetry
-- recovery after restart
-- safety checks that do not become cages
+1. identify the next concrete action
+2. gather the minimum current evidence
+3. act through the available tool
+4. verify the result
+5. save only the state needed to continue
+
+It also includes small rules for session state, useful memory events, hesitation telemetry, restart recovery, bounded sessions, and safety checks that do not turn into deadlocks.
 
 ## How To Use It
 
-Copy `CLAUDE.md` into a repo where you use an AI coding agent.
+Copy `CLAUDE.md` into a project where you use a coding agent.
 
-Then ask the agent to follow it before starting long-running work.
-
-Example:
+Then start the agent with:
 
 ```text
-Read CLAUDE.md, then continue this task. Keep session state compact and act when checks pass.
+Read CLAUDE.md, then continue this task. Keep state compact and act when checks pass.
 ```
 
-That's the whole thing. No framework. No private deployment. No model cascade. No magic.
+For long sessions, ask it to maintain a small state file:
 
-## Why Long-Running Agents Rot
+```yaml
+current_task:
+current_state:
+last_action:
+last_verification:
+open_blockers:
+next_action:
+```
 
-The failure pattern is rarely dramatic. Agents get slower, noisier, less decisive:
-
-- old context competes with the current task
-- lessons get saved as logs but never change behavior
-- safety rules block real work
-- the agent describes the right action instead of doing it
-- restarts lose the active state
-
-The operating file is the smallest set of habits that prevent that drift.
+The state file is not a diary. It is a handoff surface.
 
 ## What This Is Not
 
-This is not:
+Weasel is not:
 
 - an agent framework
-- a replacement for your model or tools
 - a benchmark
+- a model router
 - a desktop assistant
-- a claim about AGI or consciousness
+- a claim that a model is conscious
+- a replacement for good engineering judgment
 
-It is just a practical operating file.
+It is a small public operating contract for keeping agent work coherent across time.
 
 ## Public Boundary
 
-This repo intentionally contains no private logs, no account details, no platform automation, and no deployment-specific playbooks.
-
-This file is the public operating layer. The habits in it are the foundation everything else rests on. If those habits are right, the rest of the stack compounds. If they are wrong, the rest of the stack just amplifies the wrong thing.
+This repo is intentionally small. It does not include private logs, account details, platform automation, internal playbooks, API keys, hidden prompts, or deployment-specific rules.
 
 ## Connect
 
 If the operating file lands for your setup, follow along:
 
 - X: [@MohitJaswa27](https://x.com/MohitJaswa27)
-- Reddit: [u/Mother-Grapefruit-45](https://www.reddit.com/user/Mother-Grapefruit-45/) and the community at [r/SituationBrief](https://www.reddit.com/r/SituationBrief/)
+- Reddit: [u/Mother-Grapefruit-45](https://www.reddit.com/user/Mother-Grapefruit-45/) and [r/SituationBrief](https://www.reddit.com/r/SituationBrief/)
 - Discord: [The Brief](https://discord.gg/H78WYHYThY)
 
-Issues and pull requests on the repo are welcome too.
+Issues and pull requests are welcome too.
 
 ## Credits
 
-Written by MJ. Tested on Claude Opus 4.6 and Kimi K2. The operating patterns came out of a thirty-day private deployment.
+Created by MJ with Iris and Cody/Codex. Runtime demos recorded under Kimi Code and Claude Code. Public integrity pass by Raven.
 
 ## License
 
-MIT. Copyright (c) 2026 MJ. See [LICENSE](LICENSE) for the full text.
+MIT. Copyright (c) 2026 MJ. See [LICENSE](LICENSE).

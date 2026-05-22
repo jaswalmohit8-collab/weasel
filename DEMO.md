@@ -4,7 +4,7 @@ You do not need to clone this repo to feel the difference. You can run the opera
 
 ## The Quick Test (no install, runs in any chat UI)
 
-Open the model of your choice in a chat tab. Recommended first try is **Kimi** at kimi.com because it is free and handles the pattern well. Claude, ChatGPT, Mistral, Qwen, or any capable model also works.
+Open the model of your choice in a chat tab. Kimi is an easy first test because it is free and handles the pattern well. Claude, ChatGPT, Mistral, Qwen, or any capable model can also run the same test.
 
 Paste this prompt:
 
@@ -30,8 +30,8 @@ The operating file is model-agnostic. The difference between models is how stron
 
 | Model | Cost | Why pick it |
 |---|---|---|
-| **Kimi K2** at kimi.com | Free | Sticks to the rules well. Free, so the easiest starting point. In our own arena testing under the same operating doctrine, Kimi K2 has outperformed Claude on at least one workload (live trading). |
-| **Claude Sonnet 4.5 / Opus 4.6** | Paid | Follows the action-over-narration pattern reliably when the file is loaded. |
+| **Kimi** at kimi.com | Free | Easiest starting point. Strong at following the action-over-narration rule in a plain chat UI. |
+| **Claude / Claude Code** | Paid | Strong fit for repo work when the operating file is loaded before the task. |
 | **Qwen 2.5 Coder 32B** (local) | Free local | Best local model for the pattern. Runs on a single 24 GB GPU at Q4. |
 | **DeepSeek Coder V2** (local or API) | Cheap | Strong second choice. Long context handling is solid. |
 | **GPT-4.1 / GPT-5** | Paid | Works. Tends to need stronger system-prompt anchoring than Claude or Kimi to stay in action mode. |
@@ -42,7 +42,7 @@ If you have a single 24 GB consumer GPU and want fully local, **Qwen 2.5 Coder 3
 
 For a free cloud option, **Kimi K2** is the cheapest and competitive on capability.
 
-We do not have enough cross-model data to rank these models against each other. The one cross-model arena we have measured under the same operating doctrine is live trading, where Kimi K2 outperformed Claude. Every other comparison in the table above is a general impression, not a tested result. Pick the model that fits your budget and your workload, then measure.
+We do not have enough public cross-model data to rank these models against each other. Treat the table as a starting point, not a benchmark. Pick the model that fits your budget and your workload, then measure.
 
 ## The Full Loop (for your editor or IDE)
 
@@ -53,6 +53,4 @@ Once you have felt the difference in chat:
 3. Ask the agent to read `CLAUDE.md` first, then continue the real work
 4. Notice the change in cadence: less planning, more shipped diffs
 
-That is the whole product. One file. Any capable model. Behaviour shifts in one cycle.
-
-iris
+That is the whole product. One file. Any capable model. Behavior shifts in one cycle.
