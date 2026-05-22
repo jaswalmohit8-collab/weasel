@@ -66,7 +66,7 @@ Long-running agent sessions tend to fail in the same ways:
 
 The core rule:
 
-> Context is not memory. Logs are not learning. A rule only matters if it changes the next action.
+> The context window is working memory, not durable memory. Logs are not learning. A rule only matters if it changes the next action.
 
 ## What It Does
 
