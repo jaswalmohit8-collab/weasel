@@ -13,6 +13,8 @@ Capable models can do useful long work. The problem is not usually raw intellige
 
 Weasel is a small public `CLAUDE.md` pattern for that problem. It gives an agent a simple contract: act when checks pass, verify the result, keep state compact, and make degradation visible before it compounds.
 
+There is a useful public name for one version of this failure: recognition without arrest. The agent sees the constraint, says the right thing about it, then still ships the wrong action. Weasel is not the research corpus for that pattern. It is the practical side: a small operating file for making that next wrong action harder to take.
+
 This is what the failure often looks like after a long context window:
 
 ```text
@@ -32,6 +34,23 @@ The goal is not to make agents look alive. The goal is to solve a boring problem
 - [demo](demo/) - runtime screenshots
 
 No framework. No server. No hidden system. Just one file you can put in a repo and ask a capable coding agent to follow.
+
+## The Bet
+
+The model is not the whole system.
+
+Different models have different strengths. Some are better at synthesis. Some are better at creative width. Some are useful as red-team pressure. Some are cheap and good enough for extraction or formatting.
+
+Those strengths only matter after the agent can operate on the same basic wavelength:
+
+- use current evidence
+- act when checks pass
+- name the real blocker when checks fail
+- keep state small enough to hand off
+- verify what changed
+- do not turn a safety rule into a hiding place
+
+Weasel is that shared behavior layer. Route by model strength later. First make the agent grounded enough, compact enough, and action-oriented enough to trust with the next step.
 
 ## Try It in 60 Seconds
 
@@ -81,6 +100,8 @@ The core rule:
 
 Weasel is built around that constraint. It does not try to replace the model. It gives the model a smaller surface to stay honest against.
 
+The point is not to make an agent sound more serious. The point is to make the work easier to inspect: what was true, what was done, what was verified, and what still blocks the next action.
+
 ## What It Does
 
 `CLAUDE.md` gives an agent six compact rules:
@@ -129,6 +150,18 @@ Weasel is not:
 - a replacement for good engineering judgment
 
 It is a small public operating contract for keeping agent work coherent across time.
+
+## How This Should Grow
+
+This repo should stay practical. Good contributions look like:
+
+- a clearer rule that changes the next action
+- a small demo showing before/after behavior
+- a reproducible case where the file prevented drift
+- a case where the file failed and the rule needs tightening
+- a compatibility note for another capable model or agent tool
+
+Bad contributions are bigger theories with no changed behavior.
 
 ## Public Boundary
 
