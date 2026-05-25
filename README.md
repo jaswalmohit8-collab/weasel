@@ -173,7 +173,7 @@ If the operating file lands for your setup, follow along:
 
 - X: [@MohitJaswa27](https://x.com/MohitJaswa27)
 - Reddit: [u/Mother-Grapefruit-45](https://www.reddit.com/user/Mother-Grapefruit-45/) and [r/SituationBrief](https://www.reddit.com/r/SituationBrief/)
-- Discord: [The Brief](https://discord.gg/H78WYHYThY)
+- Discord: [The Brief](https://discord.gg/PFnGKx5ter)
 
 Issues and pull requests are welcome too.
 
