@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From the Bang to the Burn — 13.8 Billion Years in One Scroll</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050608;--s1:#0c0e14;--s2:#141722;--brd:rgba(255,255,255,.06);
+  --tx:#dde0ec;--tx2:#8890a8;--tx3:#4a5168;
+  --fire:#ff6b35;--star:#ffd166;--earth:#4dabf7;--sea:#22d3ee;
+  --green:#34d399;--blood:#ef4444;--bone:#f5f0e8;
+  --line:rgba(255,255,255,.08)
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:"Space Grotesk",sans-serif;font-size:15px;line-height:1.65}
+
+/* Hero */
+.hero{min-height:80vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 24px;position:relative;overflow:hidden;border-bottom:1px solid var(--brd)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 20%,rgba(255,107,53,.08),transparent 70%),radial-gradient(ellipse 40% 40% at 30% 70%,rgba(34,211,238,.05),transparent)}
+.hero *{position:relative}
+.hero-ey{font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.4em;text-transform:uppercase;color:var(--tx3);margin-bottom:20px}
+.hero h1{font-size:clamp(28px,6vw,56px);font-weight:800;line-height:1.02;letter-spacing:-.03em;max-width:700px}
+.hero h1 .f{color:var(--fire)}.hero h1 .s{color:var(--star)}.hero h1 .e{color:var(--earth)}.hero h1 .g{color:var(--green)}.hero h1 .r{color:var(--blood)}
+.hero p{color:var(--tx2);max-width:560px;margin:22px auto 0;font-size:16px;line-height:1.6}
+.hero .scroll{margin-top:40px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--tx3)}
+
+/* Timeline */
+.tl{max-width:780px;margin:0 auto;padding:0 24px 60px;position:relative}
+.tl::before{content:"";position:absolute;left:38px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--fire),var(--star) 15%,var(--earth) 30%,var(--sea) 45%,var(--green) 65%,var(--blood));opacity:.2}
+@media(max-width:600px){.tl::before{left:20px}}
+
+/* Era header */
+.era{padding:64px 0 8px 70px;position:relative}
+@media(max-width:600px){.era{padding-left:46px}}
+.era-dot{position:absolute;left:31px;top:72px;width:16px;height:16px;border-radius:50%;border:2px solid}
+@media(max-width:600px){.era-dot{left:13px;width:14px;height:14px}}
+.era-no{font-family:"JetBrains Mono",monospace;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+.era-title{font-size:clamp(22px,4vw,34px);font-weight:700;letter-spacing:-.02em;line-height:1.1;margin:4px 0}
+.era-time{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--tx3);margin-top:2px}
+.era-rule{height:2px;margin-top:14px;border-radius:1px;max-width:200px}
+
+/* Event */
+.ev{padding:20px 0 12px 70px;position:relative}
+@media(max-width:600px){.ev{padding-left:46px}}
+.ev-dot{position:absolute;left:35px;top:26px;width:8px;height:8px;border-radius:50%;background:var(--tx3)}
+@media(max-width:600px){.ev-dot{left:17px}}
+.ev-time{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--tx3)}
+.ev h3{font-size:18px;font-weight:600;margin:3px 0 8px;line-height:1.2}
+.ev p{color:var(--tx2);font-size:14px;line-height:1.7;max-width:62ch}
+.ev p strong{color:var(--tx)}
+.ev .note{margin-top:10px;background:var(--s1);border:1px solid var(--brd);border-radius:10px;padding:14px 16px;font-size:13px;color:var(--tx2);line-height:1.6}
+.ev .note b{color:var(--star)}
+.ev .note .tag{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:2px 7px;border-radius:4px;margin-right:6px}
+.ev .evidence{margin-top:10px;background:var(--s2);border-left:3px solid var(--sea);border-radius:0 8px 8px 0;padding:12px 14px;font-size:13px;color:var(--tx2);line-height:1.65}
+.ev .evidence strong{color:var(--sea)}
+.ev .destruction{margin-top:10px;background:rgba(239,68,68,.05);border-left:3px solid var(--blood);border-radius:0 8px 8px 0;padding:12px 14px;font-size:13px;color:var(--tx2);line-height:1.65}
+.ev .destruction strong{color:var(--blood)}
+
+/* Footer */
+.footer{text-align:center;padding:40px 24px 60px;border-top:1px solid var(--brd)}
+.footer p{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--tx3);letter-spacing:.1em;text-transform:uppercase}
+
+/* Colors per era */
+.era-fire .era-dot{border-color:var(--fire)}.era-fire .era-no,.era-fire .era-title{color:var(--fire)}.era-fire .era-rule{background:var(--fire)}
+.era-star .era-dot{border-color:var(--star)}.era-star .era-no,.era-star .era-title{color:var(--star)}.era-star .era-rule{background:var(--star)}
+.era-earth .era-dot{border-color:var(--earth)}.era-earth .era-no,.era-earth .era-title{color:var(--earth)}.era-earth .era-rule{background:var(--earth)}
+.era-sea .era-dot{border-color:var(--sea)}.era-sea .era-no,.era-sea .era-title{color:var(--sea)}.era-sea .era-rule{background:var(--sea)}
+.era-green .era-dot{border-color:var(--green)}.era-green .era-no,.era-green .era-title{color:var(--green)}.era-green .era-rule{background:var(--green)}
+.era-blood .era-dot{border-color:var(--blood)}.era-blood .era-no,.era-blood .era-title{color:var(--blood)}.era-blood .era-rule{background:var(--blood)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <p class="hero-ey">13.8 Billion Years in One Scroll</p>
+  <h1>From the <span class="f">Bang</span> to the <span class="r">Burn</span></h1>
+  <p>How dead stars became your bones. How the ocean is still in your blood. How the largest forests that ever lived were erased — not by an asteroid, but by us.</p>
+  <div class="scroll">↓ scroll to begin at t = 0</div>
+</header>
+
+<div class="tl">
+
+<!-- ============================================================ -->
+<!-- ERA I: THE BANG & THE FORGE -->
+<!-- ============================================================ -->
+<div class="era era-fire">
+  <div class="era-dot"></div>
+  <div class="era-no">Era I</div>
+  <div class="era-title">The Bang &amp; The First Light</div>
+  <div class="era-time">13.8 – 13.0 billion years ago</div>
+  <div class="era-rule"></div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--fire)"></div>
+  <div class="ev-time">13.8 BILLION YEARS AGO · t = 0</div>
+  <h3>The Big Bang</h3>
+  <p>Not an explosion <em>in</em> space — an explosion <em>of</em> space. All energy, all matter, all dimensions erupt from a singularity smaller than an atom. Temperature: 10³² K. In the first second, the four fundamental forces separate. In the first three minutes, the universe cools enough for the first atomic nuclei to form.</p>
+  <div class="note"><span class="tag" style="background:rgba(255,107,53,.15);color:var(--fire)">Element forge</span> <b>Big Bang nucleosynthesis</b> produces only three elements: <b>hydrogen</b> (~75%), <b>helium</b> (~25%), and traces of <b>lithium</b>. That's it. The entire periodic table beyond lithium does not yet exist. Every atom of carbon, oxygen, iron, gold, and calcium in your body is still locked inside future stars that haven't been born yet.</div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--fire)"></div>
+  <div class="ev-time">~380,000 YEARS AFTER THE BANG</div>
+  <h3>The Cosmic Dark Age Ends</h3>
+  <p>The universe cools to ~3,000 K. Electrons bind to nuclei for the first time — neutral atoms form. Light can finally travel freely. This released light is still visible today as the <strong>Cosmic Microwave Background</strong> (CMB), the oldest photograph in existence. The universe goes dark for the next 100–200 million years. No stars. No light. Just hydrogen gas, slowly clumping under gravity.</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- ERA II: THE STELLAR FORGES -->
+<!-- ============================================================ -->
+<div class="era era-star">
+  <div class="era-dot"></div>
+  <div class="era-no">Era II</div>
+  <div class="era-title">The Stellar Forges</div>
+  <div class="era-time">13.0 – 4.6 billion years ago</div>
+  <div class="era-rule"></div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--star)"></div>
+  <div class="ev-time">~13.0 BILLION YEARS AGO</div>
+  <h3>The First Stars Ignite (Population III)</h3>
+  <p>Gravity pulls hydrogen clouds together until the cores reach 15 million K — nuclear fusion begins. The first stars are <strong>monsters</strong>: hundreds of times the mass of the Sun, burning through their fuel in just a few million years (compared to the Sun's 10 billion). They are the first factories.</p>
+  <div class="note"><span class="tag" style="background:rgba(255,209,102,.15);color:var(--star)">Element forge</span> Inside these first stars, hydrogen fuses into helium, then helium fuses into <b>carbon</b> (the triple-alpha process). Carbon captures more helium to become <b>oxygen</b>. Oxygen becomes <b>neon</b>, then <b>magnesium</b>, then <b>silicon</b>. Each layer burns hotter, building heavier elements like an onion. The core stops at <b>iron (Fe)</b> — iron fusion absorbs energy instead of releasing it. The star has built its own death sentence.</div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--star)"></div>
+  <div class="ev-time">MOMENTS AFTER CORE COLLAPSE</div>
+  <h3>Supernovae — The Greatest Explosions Since the Bang</h3>
+  <p>When the iron core can no longer support itself, it collapses in <strong>milliseconds</strong>. The rebound launches the outer layers at 30,000 km/s — a supernova. For weeks, a single dying star outshines its entire galaxy. But the explosion isn't just destruction — it's <strong>creation</strong>.</p>
+  <div class="note"><span class="tag" style="background:rgba(255,209,102,.15);color:var(--star)">Element forge</span> The supernova's shockwave is so energetic it forces nuclei together past the iron barrier. In seconds, it forges every element heavier than iron: <b>cobalt, nickel, copper, zinc, silver, tin, iodine, barium, gold, platinum, lead, thorium, uranium</b>. All of these are blasted into space, seeding the gas clouds that will form the next generation of stars — and planets.</div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--star)"></div>
+  <div class="ev-time">THROUGHOUT COSMIC HISTORY</div>
+  <h3>Neutron Star Mergers — The Gold Factories</h3>
+  <p>When two dead neutron stars spiral into each other, the collision — called a <strong>kilonova</strong> — produces a burst of gamma rays and sprays out heavy elements at enormous rates. In 2017, astronomers observed the kilonova GW170817 and confirmed it produced roughly <strong>10 Earth-masses of gold</strong> and <strong>500 Earth-masses of platinum</strong> in a single event.</p>
+  <div class="note"><span class="tag" style="background:rgba(255,209,102,.15);color:var(--star)">Element forge</span> Kilonovae are now believed to be the <b>primary source</b> of the heaviest elements: gold, platinum, and many rare earth metals. The gold in every ring, every circuit board, every tooth filling — was forged in a collision between two dead stars, billions of years before Earth existed.</div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--star)"></div>
+  <div class="ev-time">BILLIONS OF YEARS OF RECYCLING</div>
+  <h3>Generations of Stars — Each Richer Than the Last</h3>
+  <p>Stars die. Their ashes mix with virgin hydrogen in vast <strong>molecular clouds</strong> (nebulae). New stars form from these enriched clouds, inheriting the metals forged by their predecessors. Each generation is chemically richer. Our Sun is a <strong>third-generation star</strong> — born from the recycled corpses of at least two previous stellar generations. The calcium in your bones, the iron in your blood, the phosphorus in your DNA — all of it passed through the cores of stars that died before the Sun was born.</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- ERA III: BUILDING EARTH -->
+<!-- ============================================================ -->
+<div class="era era-earth">
+  <div class="era-dot"></div>
+  <div class="era-no">Era III</div>
+  <div class="era-title">Building Earth</div>
+  <div class="era-time">4.6 – 3.8 billion years ago</div>
+  <div class="era-rule"></div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--earth)"></div>
+  <div class="ev-time">4.6 BILLION YEARS AGO</div>
+  <h3>The Solar Nebula Collapses</h3>
+  <p>A nearby supernova's shockwave disturbs a molecular cloud roughly 2 light-years across. It begins to collapse under its own gravity, spinning faster as it shrinks (like an ice skater pulling in their arms). The centre becomes the <strong>proto-Sun</strong>. The remaining ~1% of material flattens into a spinning disk of gas and dust — the <strong>protoplanetary disk</strong>.</p>
+  <div class="note"><span class="tag" style="background:rgba(77,171,247,.15);color:var(--earth)">Crust recipe</span> This disk contains every element forged by previous stars. By mass: <b>hydrogen &amp; helium</b> dominate (gas giants will claim these), but the dust grains are rich in <b>iron, oxygen, silicon, magnesium, nickel, sulfur, calcium, aluminium</b> — the exact ingredients of Earth's crust and core. The recipe was written by dead stars.</div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--earth)"></div>
+  <div class="ev-time">4.54 BILLION YEARS AGO</div>
+  <h3>Earth Accretes — Dust to World in 100 Million Years</h3>
+  <p>Dust grains collide and stick. Pebbles become boulders. Boulders become planetesimals (1–10 km). Planetesimals smash together into <strong>protoplanets</strong>. Constant bombardment keeps the surface molten — Earth is a <strong>magma ocean</strong>. Heavier elements (iron, nickel) sink to the core. Lighter silicates float to form the mantle and crust. This process — <strong>differentiation</strong> — is why Earth has layers.</p>
+  <div class="note"><span class="tag" style="background:rgba(77,171,247,.15);color:var(--earth)">Crust recipe</span> Earth's crust is: <b>oxygen 46%</b>, <b>silicon 28%</b>, <b>aluminium 8%</b>, <b>iron 5%</b>, <b>calcium 3.6%</b>, <b>sodium 2.8%</b>, <b>potassium 2.6%</b>, <b>magnesium 2.1%</b>. Every single one was forged inside a star. The oxygen you breathe was fused from carbon and helium inside a star 10× the Sun's mass. The silicon in every rock was built from oxygen capture in a stellar core. You walk on a graveyard of stars.</div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--earth)"></div>
+  <div class="ev-time">4.51 BILLION YEARS AGO</div>
+  <h3>Theia Strikes — The Moon Is Born</h3>
+  <p>A Mars-sized protoplanet called <strong>Theia</strong> slams into Earth at ~15 km/s. The impact vaporises both bodies' outer layers. A ring of molten debris orbits the shattered Earth and coalesces within months into the <strong>Moon</strong>. The impact tilts Earth's axis to 23.4° — giving us seasons — and spins Earth so fast that a day lasts only 6 hours. The Moon's gravity will gradually slow Earth's rotation over billions of years to the 24-hour day we know.</p>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--earth)"></div>
+  <div class="ev-time">4.4 – 4.0 BILLION YEARS AGO</div>
+  <h3>The Oceans Arrive</h3>
+  <p>Earth cools below 100°C. Water vapour in the atmosphere condenses into the first rains — and it rains for <strong>millions of years</strong>. Asteroids and comets deliver additional water and organic molecules. The first oceans form. They are <strong>green</strong> (dissolved iron), under an atmosphere of CO₂, nitrogen, and methane — no free oxygen yet. The water is salty from dissolved minerals. This salt concentration — about 0.9% — will become important later, because it will be preserved inside every animal that ever evolves from these waters.</p>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--earth)"></div>
+  <div class="ev-time">4.1 – 3.8 BILLION YEARS AGO</div>
+  <h3>The Late Heavy Bombardment</h3>
+  <p>Jupiter and Saturn's gravitational dance flings billions of asteroids and comets into the inner solar system. Earth, Mars, and the Moon are pummelled. The Moon's cratered face is the scar. On Earth, the bombardment delivers <strong>more water, carbon, nitrogen, and phosphorus</strong> — the final ingredients for life. Some scientists think the impacts may have also delivered intact amino acids and nucleobases, pre-built by chemistry in space.</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- ERA IV: LIFE IN THE SEA -->
+<!-- ============================================================ -->
+<div class="era era-sea">
+  <div class="era-dot"></div>
+  <div class="era-no">Era IV</div>
+  <div class="era-title">Life Begins in the Ocean</div>
+  <div class="era-time">3.8 billion – 375 million years ago</div>
+  <div class="era-rule"></div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--sea)"></div>
+  <div class="ev-time">~3.8 BILLION YEARS AGO</div>
+  <h3>Abiogenesis — Chemistry Becomes Biology</h3>
+  <p>Near <strong>hydrothermal vents</strong> on the ocean floor, where superheated mineral-rich water meets cold seawater, simple molecules begin assembling into more complex ones. Amino acids link into proteins. Lipids form membranes. RNA molecules begin copying themselves. At some unknowable moment, a membrane closes around a self-replicating molecule — and the first <strong>cell</strong> exists. Life begins. It will stay exclusively in the ocean for the next <strong>3.4 billion years</strong>.</p>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--sea)"></div>
+  <div class="ev-time">~3.5 BILLION YEARS AGO</div>
+  <h3>Stromatolites — The First Visible Life</h3>
+  <p>Mats of <strong>cyanobacteria</strong> build layered rock structures in shallow seas. These are the oldest visible fossils. Cyanobacteria develop <strong>photosynthesis</strong> — splitting water with sunlight, releasing oxygen as waste. This oxygen is toxic to most existing life. It will take over a billion years to saturate the oceans and atmosphere, but when it does, it will transform the planet.</p>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--sea)"></div>
+  <div class="ev-time">~2.4 BILLION YEARS AGO</div>
+  <h3>The Great Oxygenation Event</h3>
+  <p>After 1.1 billion years of cyanobacteria pumping out oxygen, the oceans' dissolved iron is finally saturated (it had been absorbing all the O₂, forming the <strong>banded iron formations</strong> — the iron ore we mine today). Free oxygen floods the atmosphere. This is the <strong>first mass extinction</strong> — most anaerobic life dies. But oxygen enables a far more powerful metabolism: <strong>aerobic respiration</strong> — 16× more energy per glucose molecule. Complex life becomes possible.</p>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--sea)"></div>
+  <div class="ev-time">~2.0 BILLION YEARS AGO</div>
+  <h3>Eukaryotes — Cells Within Cells</h3>
+  <p>A large cell engulfs a smaller bacterium — but instead of digesting it, both survive. The smaller cell becomes a <strong>mitochondrion</strong>, an internal power plant. This is <strong>endosymbiosis</strong>. Eukaryotic cells (with nuclei and organelles) emerge. They are the ancestors of every animal, plant, and fungus. Your mitochondria still carry their own DNA — a remnant of this ancient merger.</p>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--sea)"></div>
+  <div class="ev-time">~600 MILLION YEARS AGO</div>
+  <h3>Multicellular Life &amp; The Ediacaran Fauna</h3>
+  <p>Cells begin cooperating as organisms. The <strong>Ediacaran biota</strong> — flat, quilted creatures unlike anything alive today — appear on the seafloor. Rangeomorphs, Dickinsonia, Spriggina. Many are evolutionary dead ends, but they prove that multicellular body plans work.</p>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--sea)"></div>
+  <div class="ev-time">~540 MILLION YEARS AGO</div>
+  <h3>The Cambrian Explosion — All Body Plans in 20 Million Years</h3>
+  <p>In a geological instant, nearly every major animal phylum appears: arthropods, chordates, molluscs, echinoderms, annelids. Eyes evolve. Jaws evolve. The arms race between predator and prey begins. <strong>Anomalocaris</strong> — a metre-long shrimp-like predator — rules the Cambrian seas. Among the small, worm-like creatures wriggling in the mud is <strong>Pikaia</strong> — a chordate. It has a notochord (primitive spine). It is the ancestor of every vertebrate, including you.</p>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--sea)"></div>
+  <div class="ev-time">~530 – 400 MILLION YEARS AGO</div>
+  <h3>Fish — The First Vertebrates</h3>
+  <p>Jawless fish (<strong>Ostracoderms</strong>) evolve bony armour. Then <strong>jaws</strong> evolve from the first pair of gill arches — a repurposed breathing structure that becomes the most important innovation in vertebrate history. Jawed fish (<strong>Gnathostomes</strong>) diversify into sharks, ray-finned fish, and critically — <strong>lobe-finned fish</strong> (Sarcopterygii). These lobe-finned fish have muscular, bony fins with an internal skeletal structure remarkably similar to a tetrapod limb: one bone, then two bones, then many small bones. The blueprint for arms and legs already exists, underwater.</p>
+  <div class="evidence">
+    <strong>Evidence in your body — the ocean is still inside you:</strong><br><br>
+    <strong>1. Your blood is saltwater.</strong> Human blood plasma is ~0.9% salt (NaCl) — almost identical to the salinity of the ancient Cambrian ocean. We didn't leave the sea. We <em>enclosed</em> it. Every cell in your body still floats in a miniature ocean.<br><br>
+    <strong>2. Pharyngeal arches = gill arches.</strong> Every human embryo develops <strong>pharyngeal arches</strong> at 4–5 weeks — the exact same structures that become gills in fish. In us, the first arch becomes the <strong>jaw and ear bones</strong>. The second becomes the <strong>hyoid bone</strong> (your voice box support). The third and fourth become the <strong>thyroid and parathyroid glands</strong>. Your jaw is a repurposed gill.<br><br>
+    <strong>3. The nictitating membrane.</strong> Look at the inner corner of your eye — that small pink fold of tissue is the <strong>plica semilunaris</strong>. It's the vestigial remnant of a <strong>nictitating membrane</strong> (third eyelid) that still functions in sharks, frogs, birds, and cats. It no longer works in humans, but the tissue is still there — a fossil in your face.<br><br>
+    <strong>4. The hiccup reflex.</strong> A hiccup is a spasmodic contraction of the diaphragm followed by a snap-closure of the glottis. This motor pattern is identical to the <strong>gill ventilation reflex</strong> in tadpoles and lungfish — it pumps water over gills while keeping it out of the lungs. We inherited the neural circuit. It serves no purpose in air-breathing humans. It's a ghost of our aquatic past.<br><br>
+    <strong>5. Flying fish DNA.</strong> Modern flying fish (Exocoetidae) evolved enlarged pectoral fins that function as wings for gliding up to 200 metres. Genetic studies show these fins are modified using the <strong>same Hox genes and signalling pathways</strong> (Shh, Fgf, Wnt) that control limb development in tetrapods. The developmental toolkit for turning a fin into a limb — or a wing — is ancient and shared across all vertebrates. The code was written once, in the ocean.
+  </div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--sea)"></div>
+  <div class="ev-time">~375 MILLION YEARS AGO</div>
+  <h3>Tiktaalik — The Fish That Walked</h3>
+  <p>Found in the Canadian Arctic in 2004, <strong>Tiktaalik roseae</strong> is a lobe-finned fish with a flat head, a neck (no fish before it could turn its head), wrist joints, and primitive digits inside its fins. It could do push-ups. It could prop itself up in shallow water and look around. It is the <strong>transitional fossil</strong> between fish and tetrapods — the creature caught in the act of leaving the water. Its fins were becoming legs. Its gill covers were shrinking. Its ribs were thickening to support its weight on land. Your hands are Tiktaalik's fins, remodelled over 375 million years.</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- ERA V: THE GREEN EMPIRE -->
+<!-- ============================================================ -->
+<div class="era era-green">
+  <div class="era-dot"></div>
+  <div class="era-no">Era V</div>
+  <div class="era-title">The Green Empire</div>
+  <div class="era-time">400 – 66 million years ago</div>
+  <div class="era-rule"></div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--green)"></div>
+  <div class="ev-time">~400 MILLION YEARS AGO</div>
+  <h3>Plants Conquer Land First</h3>
+  <p>Before animals leave the water, <strong>plants</strong> do. Mosses, then ferns, then seed plants spread across barren continents. They transform the atmosphere, the soil, and the landscape. Roots break rock. Leaves pull CO₂ from the air. Oxygen levels begin climbing toward modern levels.</p>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--green)"></div>
+  <div class="ev-time">360 – 300 MILLION YEARS AGO</div>
+  <h3>The Carboniferous — The Greatest Forests in Earth's History</h3>
+  <p>The Carboniferous period produces forests of a scale the planet has never seen before or since. Oxygen reaches <strong>35%</strong> (vs 21% today). The dominant trees are not what you'd recognise:</p>
+  <p><strong>Lepidodendron</strong> — scale trees reaching <strong>40+ metres</strong> tall, with trunks 2 metres in diameter, covered in diamond-pattern bark. They grew to full height in <strong>10–15 years</strong> (modern oaks take 100).<br>
+  <strong>Sigillaria</strong> — 30-metre seal trees, close relatives of Lepidodendron.<br>
+  <strong>Calamites</strong> — giant horsetails, 20+ metres tall (modern horsetails barely reach 1 metre).<br>
+  <strong>Cordaites</strong> — early conifers, up to 45 metres, with strap-shaped leaves over a metre long.<br>
+  <strong>Tree ferns</strong> — with fronds spanning 5 metres, forming the understorey of these alien forests.</p>
+  <p>The air in these forests was so oxygen-rich that <strong>dragonflies grew to 70cm wingspans</strong> (Meganeura) and <strong>millipedes grew to 2.5 metres long</strong> (Arthropleura). When these trees fell, <strong>nothing could decompose them</strong> — the fungi and bacteria capable of breaking down lignin (wood) had not yet evolved. Dead trees piled up for millions of years, were buried, compressed, and became the <strong>coal deposits</strong> we burn today. The Carboniferous forests are literally the fuel of the industrial revolution.</p>
+  <div class="destruction">
+    <strong>Were there even bigger trees?</strong> The Carboniferous megaflora were genuine giants — 40–45 metres (130–150 feet) is confirmed by fossils. Some palaeobotanists believe individual specimens may have exceeded 50 metres. Later periods produced even taller trees: <strong>Prototaxites</strong> (actually a giant fungus, up to 8m, in the Devonian), and the Mesozoic conifers that likely exceeded 60m. Today, the tallest living tree — Hyperion, a coast redwood — stands at 115.9 metres. But redwoods are survivors, not newcomers. Their lineage extends back to the Jurassic. The giant forests that once covered entire continents — from pole to pole — have been reduced to fragments.
+  </div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--green)"></div>
+  <div class="ev-time">~360 MILLION YEARS AGO</div>
+  <h3>Amphibians — The First Tetrapods</h3>
+  <p>Descendants of lobe-finned fish like Tiktaalik fully commit to land. <strong>Ichthyostega</strong> and <strong>Acanthostega</strong> have true limbs with digits but still have fishlike tails and lateral-line sensory systems. They live between water and land. Modern frogs and salamanders are their descendants. The transition takes millions of years — and leaves fossils showing every intermediate stage.</p>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--green)"></div>
+  <div class="ev-time">~310 MILLION YEARS AGO</div>
+  <h3>Reptiles — The Amniotic Egg Frees Animals from Water</h3>
+  <p>The evolution of the <strong>amniotic egg</strong> — with a shell and internal fluid — means embryos no longer need an external water body. Reptiles can reproduce far from any ocean or lake. Land is now fully colonised by vertebrates. The diversification into lizards, turtles, archosaurs (ancestors of dinosaurs and birds), and synapsids (ancestors of mammals) begins.</p>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--green)"></div>
+  <div class="ev-time">~230 – 66 MILLION YEARS AGO</div>
+  <h3>Dinosaurs &amp; The Age of Reptiles</h3>
+  <p>Dinosaurs dominate for <strong>165 million years</strong> — far longer than mammals have existed. Meanwhile, small, furry, nocturnal creatures scurry beneath their feet. These are the <strong>early mammals</strong>. They are our ancestors. When the Chicxulub asteroid strikes 66 million years ago, it kills 76% of all species. The dinosaurs (except birds) vanish. The mammals survive — and inherit an empty world.</p>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--green)"></div>
+  <div class="ev-time">~55 MILLION YEARS AGO</div>
+  <h3>Primates Emerge</h3>
+  <p>Small, tree-dwelling mammals with forward-facing eyes and grasping hands diversify in the tropical forests. These are the first <strong>primates</strong>. Their binocular vision evolves for judging distances between branches. Their hands evolve for gripping. These traits — originally for climbing — will eventually be repurposed for tool-making and writing.</p>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--green)"></div>
+  <div class="ev-time">~25 – 7 MILLION YEARS AGO</div>
+  <h3>Apes Diverge — Our Closest Relatives</h3>
+  <p>The <strong>great apes</strong> diverge from other primates. Orangutans split off ~14 million years ago. Gorillas ~10 million years ago. The human-chimpanzee lineage splits from the human-gorilla lineage. <strong>Chimpanzees and bonobos</strong> share ~98.7% of our DNA. They use tools, wage wars, mourn their dead, and teach their young. The differences between us and them are real but narrow — a few hundred genes governing brain size, vocal tract shape, and muscle fibre distribution.</p>
+  <div class="evidence">
+    <strong>Shared ape evidence:</strong> The <strong>same Hox gene clusters</strong> that governed body segmentation in Cambrian worms still control our spine. Apes share not just DNA sequences but <strong>identical chromosomal fusions</strong> — human chromosome 2 is a fusion of two chromosomes that remain separate in all other great apes. The fusion scar is visible under a microscope. We didn't descend from modern apes — we and they share a common ancestor, and we carry the proof in every cell.
+  </div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--green)"></div>
+  <div class="ev-time">~6 MILLION YEARS AGO</div>
+  <h3>The Human–Chimpanzee Split</h3>
+  <p>Our lineage separates. The earliest hominins — <strong>Sahelanthropus</strong>, <strong>Ardipithecus</strong> — begin experimenting with upright walking. Bipedalism frees the hands. Free hands enable carrying, tool use, and eventually — gesture, language, and technology.</p>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--green)"></div>
+  <div class="ev-time">~2.5 MILLION – 300,000 YEARS AGO</div>
+  <h3>Homo — Toolmakers, Fire-Starters, Wanderers</h3>
+  <p><strong>Homo habilis</strong> makes the first stone tools (2.5 Ma). <strong>Homo erectus</strong> controls fire and migrates out of Africa (1.8 Ma). <strong>Homo heidelbergensis</strong> builds shelters and hunts large game (700,000 ya). Brain size triples over this period — from 600cc (habilis) to 1,400cc (sapiens). Language, complex social structures, and abstract thought develop.</p>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--green)"></div>
+  <div class="ev-time">~300,000 YEARS AGO</div>
+  <h3>Homo sapiens — Us</h3>
+  <p>Anatomically modern humans appear in Africa. We are a single species. We can all interbreed. We share 99.9% of our DNA with every other human on Earth. We carry within us: hydrogen from the Big Bang, carbon from red giants, iron from supernovae, gold from neutron star mergers, calcium from dying white dwarfs, salt from the Cambrian ocean, gill arches repurposed as jaws, fish fins remodelled as hands, and a neural hiccup reflex from our amphibian ancestors. We are 13.8 billion years of cosmic history, walking.</p>
+</div>
+
+<!-- ============================================================ -->
+<!-- ERA VI: THE BURNING -->
+<!-- ============================================================ -->
+<div class="era era-blood">
+  <div class="era-dot"></div>
+  <div class="era-no">Era VI</div>
+  <div class="era-title">The Burning</div>
+  <div class="era-time">50,000 years ago – present</div>
+  <div class="era-rule"></div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--blood)"></div>
+  <div class="ev-time">~50,000 – 10,000 YEARS AGO</div>
+  <h3>The Megafauna Extinctions</h3>
+  <p>As Homo sapiens spreads across the continents, the largest animals on every landmass vanish within centuries to millennia of our arrival. This is not coincidence.</p>
+  <div class="destruction">
+    <strong>Australia (~46,000 ya):</strong> Within a few thousand years of human arrival, all 24 megafauna species go extinct: <strong>Diprotodon</strong> (3-tonne wombat), <strong>Thylacoleo</strong> (marsupial lion), <strong>Megalania</strong> (6-metre monitor lizard), <strong>Genyornis</strong> (200kg thunderbird).<br><br>
+    <strong>Americas (~13,000 ya):</strong> Humans cross the Bering land bridge and within 1,000–2,000 years, 35 genera of large mammals vanish: <strong>woolly mammoths, mastodons, ground sloths</strong> (6m tall), <strong>saber-toothed cats, American horses, American camels, glyptodonts</strong> (car-sized armadillos). North America loses 72% of its large mammal genera. South America loses 83%.<br><br>
+    <strong>Islands (ongoing):</strong> Madagascar's <strong>elephant birds</strong> and <strong>giant lemurs</strong> vanish within centuries of human arrival (~1,500 ya). New Zealand's <strong>moa</strong> (3.6m tall) is hunted to extinction within ~200 years of Polynesian settlement (~1300 CE). The <strong>dodo</strong> of Mauritius lasts less than 80 years after European contact.<br><br>
+    <strong>Pattern:</strong> Every continent and major island shows the same signature — humans arrive, megafauna disappears. The only continent where large animals survived alongside humans is <strong>Africa</strong> — because African megafauna co-evolved with hominins over millions of years and learned to fear them. Everywhere else, the animals had never seen a two-legged predator and had no instinct to flee.
+  </div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--blood)"></div>
+  <div class="ev-time">~10,000 YEARS AGO – PRESENT</div>
+  <h3>The Forests Fall</h3>
+  <p>Agriculture begins. Forests are cleared for fields. Cities consume wood for fuel, construction, and ships. The process accelerates with every civilisation.</p>
+  <div class="destruction">
+    <strong>The numbers:</strong><br>
+    Earth once had an estimated <strong>6 trillion trees</strong>.<br>
+    Today: approximately <strong>3 trillion</strong>.<br>
+    Humans have cut down <strong>46% of all trees</strong> on the planet since civilisation began.<br>
+    Current rate: ~<strong>15 billion trees</strong> cut per year. ~5 billion replanted. Net loss: ~10 billion/year.<br><br>
+    <strong>The ancient giants:</strong> The Carboniferous megaforests are gone (turned to coal). But even the more recent ancient forests — the old-growth ecosystems that took thousands of years to develop — have been systematically destroyed:<br><br>
+    • Europe has lost <strong>>99%</strong> of its original old-growth forest. Only fragments survive in Poland (Białowieża), Scandinavia, and the Balkans.<br>
+    • The Eastern United States was once continuous old-growth forest from the Atlantic to the Mississippi — <strong>virtually all of it was cleared</strong> between 1600–1900.<br>
+    • The Amazon, Earth's largest remaining tropical forest, has lost <strong>~17%</strong> of its area in the last 50 years.<br>
+    • Borneo has lost <strong>>50%</strong> of its rainforest since 1973, mostly for palm oil.<br><br>
+    <strong>What we lost wasn't just wood</strong> — it was ecosystems that had been developing since before human civilisation existed. Old-growth forests support thousands of species found nowhere else. When a 1,000-year-old forest is cut, the web of fungi, insects, birds, mammals, and microorganisms it supported is severed. Many species go extinct before they're even catalogued.
+  </div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--blood)"></div>
+  <div class="ev-time">CONTINENTAL DIVERSITY — ERASED</div>
+  <h3>Homogenisation — Making Every Continent the Same</h3>
+  <p>Each continent evolved its own unique flora and fauna over tens of millions of years of isolation. Humans have been systematically undoing this.</p>
+  <div class="destruction">
+    <strong>How it works:</strong> Colonisation brings invasive species. Ships carry rats to every island. Europeans bring horses, cattle, pigs, goats, and cats to the Americas, Australia, and the Pacific. Native species — evolved without these competitors and predators — collapse.<br><br>
+    <strong>Australia:</strong> 29 mammal species driven extinct since European settlement (1788). <strong>The highest mammal extinction rate of any continent.</strong> Cats alone kill an estimated 1.7 billion native animals per year in Australia.<br><br>
+    <strong>Pacific Islands:</strong> An estimated <strong>1,000–2,000 bird species</strong> were driven extinct by Polynesian colonisation alone, before Europeans even arrived. Many were flightless — they had evolved on islands without mammalian predators and had no defence against human hunters or the rats that came with them.<br><br>
+    <strong>The result:</strong> Walk through a farm in New Zealand and you see European grass, European cattle, European trees, European birds (sparrows, starlings). The native bush — with its kiwi, kakapo, tuatara, and ancient podocarps — survives only in protected fragments. The continent's 80-million-year evolutionary identity has been partially overwritten in 800 years.
+  </div>
+</div>
+
+<div class="ev">
+  <div class="ev-dot" style="background:var(--blood)"></div>
+  <div class="ev-time">THE PRESENT — THE SIXTH EXTINCTION</div>
+  <h3>Where We Are Now</h3>
+  <p>The current extinction rate is estimated at <strong>100–1,000 times</strong> the natural background rate. This is comparable to the five previous mass extinctions — events caused by asteroid impacts, volcanic mega-eruptions, and ocean chemistry crashes. This time, the cause is a single species.</p>
+  <div class="destruction">
+    <strong>Scale of loss:</strong><br>
+    • <strong>69% decline</strong> in monitored wildlife populations since 1970 (WWF Living Planet Index).<br>
+    • <strong>1 million species</strong> estimated at risk of extinction within decades (IPBES 2019).<br>
+    • <strong>40% of amphibian species</strong> threatened.<br>
+    • <strong>33% of reef-building corals</strong> threatened.<br>
+    • <strong>10% of insect species</strong> threatened — pollinators on which 75% of food crops depend.<br><br>
+    The irony: the species doing this carries in its body the salt of the Cambrian ocean, the calcium of dead stars, the genetic code of Cambrian worms, the repurposed gill arches of Devonian fish, and the inherited hiccup of a Carboniferous amphibian. We are the ocean, walking on land, burning the forest that gave us oxygen.
+  </div>
+</div>
+
+</div><!-- /tl -->
+
+<footer class="footer">
+  <p>13.8 billion years · from hydrogen to humanity · from creation to destruction</p>
+</footer>
+
+</body>
+</html>
